@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MVVM.ViewModels;
+using System.Windows;
 
 namespace MVVM.View
 {
@@ -12,6 +13,8 @@ namespace MVVM.View
             if(autorization.DialogResult == true)
             {
                 InitializeComponent();
+                MainVM mainVM = new MainVM(autorization.AuthUser);
+                DataContext = mainVM;
             }
             else
             {
