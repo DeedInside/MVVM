@@ -5,8 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MVVM.View.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="400" d:DesignWidth="400">
+    <StackPanel VerticalAlignment="Center" 
+        HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBox Width="120" Margin="5"
+                 Text="{Binding Login}"/>
+            <Label Content="Login"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Width="120" Margin="5"
+                 Text="{Binding OnePassword}"/>
+            <Label Content="Password"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Width="120" Margin="5"
+         Text="{Binding TwoPassword}"/>
+            <Label Content="Password"/>
+        </StackPanel>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="2"
+                HorizontalAlignment="Center">
+                <Button Content="регистрация" Margin="0 0 5 0" Width="100"
+                    Command="{Binding RegCommand}"/>
+                <Button Content="отмена" Width="100"
+                    Command="{Binding ExitCommand}"/>
+            </StackPanel>
+           
+        </StackPanel>
+    </StackPanel>
 </UserControl>

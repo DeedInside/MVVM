@@ -7,8 +7,11 @@ namespace MVVM.View.Controls
 {
     public partial class AutorizationrControl : UserControl
     {
-        public string Login { get; set; } = "login";
-        public string Password { get; set; } = "password";
+        public event EventHandler? ButtonClicReg;
+        public event EventHandler? ButtonClickAuth;
+        public User AuthUser { get; set; } = null;
+        public string Login { get; set; } = "1";
+        public string Password { get; set; } = "1";
         public AutorizationrControl()
         {
             InitializeComponent();
@@ -30,7 +33,8 @@ namespace MVVM.View.Controls
 
                           if(user != null)
                           {
-                              MessageBox.Show(user.ToString());
+                              AuthUser = user;
+                              ButtonClickAuth(this, EventArgs.Empty);
                           }
                           else
                           {
@@ -53,8 +57,7 @@ namespace MVVM.View.Controls
                 return regCommand ??
                   (regCommand = new RelayCommand(obj =>
                   {
-                      //TODO reg
-                      MessageBox.Show("reg");
+                      ButtonClicReg?.Invoke(this, EventArgs.Empty);
                   }));
             }
         }
