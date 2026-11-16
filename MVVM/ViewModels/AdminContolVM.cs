@@ -1,4 +1,5 @@
 ﻿using MVVM.Models;
+using MVVM.View;
 using System.Windows;
 
 namespace MVVM.ViewModels
@@ -17,8 +18,12 @@ namespace MVVM.ViewModels
                 return field ??
                   (field = new RelayCommand(obj =>
                   {
-                      MessageBox.Show("выход");
-                      // ButtonClicReg?.Invoke(this, EventArgs.Empty);
+                      Application.Current.MainWindow.Visibility = Visibility.Hidden;
+                      
+                      Main newMainWindow = new Main();
+                      newMainWindow.Show();
+
+                      Application.Current.MainWindow.Close();
                   }));
             }
         }
