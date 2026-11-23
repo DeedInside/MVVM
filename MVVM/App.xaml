@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MVVM"
              StartupUri="View/Main.xaml">
+    <!--ShutdownMode="OnExplicitShutdown"-->
     <Application.Resources>
          
     </Application.Resources>

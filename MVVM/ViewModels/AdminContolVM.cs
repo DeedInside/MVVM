@@ -18,12 +18,16 @@ namespace MVVM.ViewModels
                 return field ??
                   (field = new RelayCommand(obj =>
                   {
-                      Application.Current.MainWindow.Visibility = Visibility.Hidden;
-                      
-                      Main newMainWindow = new Main();
-                      newMainWindow.Show();
+                      var currentWindow = Application.Current.Windows
+                      .OfType<Window>()
+                      .FirstOrDefault(w => w.IsActive)
+                      ?? Application.Current.MainWindow;
 
-                      Application.Current.MainWindow.Close();
+                      currentWindow.Visibility = Visibility.Hidden;
+                      var newWindow = (Window)Activator.CreateInstance(currentWindow.GetType());
+
+                      newWindow.Show();
+                      currentWindow.Close();
                   }));
             }
         }
